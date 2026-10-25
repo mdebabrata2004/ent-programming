@@ -10,7 +10,7 @@ import { WebPreviewPanel } from './components/WebPreviewPanel';
 import { DiagnosticsPanel } from './components/DiagnosticsPanel';
 
 import { registerEntLanguage, ENT_LANGUAGE_ID } from './editor/entLanguage';
-import { runCode, checkCode, buildWebsite, getExamples } from './services/api';
+import { runCode, checkCode, buildWebsite, getExamples, renameFile } from './services/api';
 import { RunResult, BuildResult, EntError } from './types';
 import './App.css';
 
@@ -29,6 +29,7 @@ export const App: React.FC = () => {
   const [files, setFiles] = useState<Record<string, string>>(DEFAULT_FILES);
   const [currentFile, setCurrentFile] = useState<string>('hello.ent');
   const [code, setCode] = useState<string>(DEFAULT_FILES['hello.ent']);
+  const [renamingFile, setRenamingFile] = useState<string | null>(null);
 
   const [activeTab, setActiveTab] = useState<'console' | 'preview' | 'diagnostics'>('console');
   const [isRunning, setIsRunning] = useState<boolean>(false);
@@ -253,6 +254,71 @@ export const App: React.FC = () => {
     }
   };
 
+  const handleStartRename = (fileName: string) => {
+    setRenamingFile(fileName);
+  };
+
+  const handleCancelRename = () => {
+    setRenamingFile(null);
+  };
+
+  const handleConfirmRename = async (oldName: string, newName: string) => {
+    setRenamingFile(null);
+    if (oldName === newName) return;
+
+    // Check collision in frontend files state
+    if (files[newName] && newName.toLowerCase() !== oldName.toLowerCase()) {
+      setStatus('error');
+      setStatusMessage(`File '${newName}' already exists`);
+      setCurrentError({
+        category: 'File Error',
+        message: `A file named '${newName}' already exists. Overwriting is not permitted.`,
+        file: oldName,
+        line: 1,
+        column: 1,
+        suggestion: 'Choose a distinct filename.',
+        formatted: `[File Error] Destination file '${newName}' already exists.`,
+      });
+      setActiveTab('diagnostics');
+      return;
+    }
+
+    try {
+      // Call backend rename endpoint
+      await renameFile(oldName, newName);
+
+      // Preserve unsaved code if the renamed file is the active editor file
+      const currentContent = oldName === currentFile ? code : (files[oldName] || '');
+
+      setFiles((prev) => {
+        const updated = { ...prev };
+        delete updated[oldName];
+        updated[newName] = currentContent;
+        return updated;
+      });
+
+      if (currentFile === oldName) {
+        setCurrentFile(newName);
+      }
+
+      setStatus('success');
+      setStatusMessage(`Renamed to ${newName}`);
+    } catch (err: any) {
+      setStatus('error');
+      setStatusMessage('Rename Failed');
+      setCurrentError({
+        category: 'Rename Error',
+        message: err.message || `Failed to rename '${oldName}' to '${newName}'.`,
+        file: oldName,
+        line: 1,
+        column: 1,
+        suggestion: 'Ensure the new filename is valid, does not contain path separators, and ends with .ent',
+        formatted: `[Rename Error] ${err.message || 'Failed to rename file.'}`,
+      });
+      setActiveTab('diagnostics');
+    }
+  };
+
   return (
     <div className="ent-app">
       <Header
@@ -270,11 +336,15 @@ export const App: React.FC = () => {
         <Sidebar
           currentFile={currentFile}
           files={Object.keys(files)}
+          renamingFile={renamingFile}
           onSelectFile={handleSelectFile}
           onNewFile={handleNewFile}
           onImportFile={handleImportFile}
           onExportFile={handleExportFile}
           onResetFile={handleResetFile}
+          onStartRename={handleStartRename}
+          onConfirmRename={handleConfirmRename}
+          onCancelRename={handleCancelRename}
         />
 
         <main className="ent-main-container">

@@ -72,3 +72,38 @@ def test_cli_check_invalid_file(tmp_path: Path):
     result = runner.invoke(app, ["check", str(f)])
     assert result.exit_code == 1
     assert "Syntax Error" in result.output
+
+
+def test_cli_new_command_valid(tmp_path: Path, monkeypatch):
+    monkeypatch.chdir(tmp_path)
+    result = runner.invoke(app, ["new", "my-portfolio"])
+    assert result.exit_code == 0
+    assert "Created new ENT project" in result.output
+    proj_dir = tmp_path / "my-portfolio"
+    assert proj_dir.is_dir()
+    assert (proj_dir / "website.ent").is_file()
+    assert (proj_dir / "README.md").is_file()
+
+
+def test_cli_new_command_invalid_name(tmp_path: Path, monkeypatch):
+    monkeypatch.chdir(tmp_path)
+    result = runner.invoke(app, ["new", "../bad_path"])
+    assert result.exit_code == 1
+    assert "Invalid project name" in result.output
+
+
+def test_cli_new_command_existing_dir(tmp_path: Path, monkeypatch):
+    monkeypatch.chdir(tmp_path)
+    existing = tmp_path / "existing-proj"
+    existing.mkdir()
+    (existing / "file.txt").write_text("content")
+
+    result = runner.invoke(app, ["new", "existing-proj"])
+    assert result.exit_code == 1
+    assert "already exists and is not empty" in result.output
+
+
+def test_cli_dev_missing_file(tmp_path: Path):
+    result = runner.invoke(app, ["dev", str(tmp_path / "missing.ent")])
+    assert result.exit_code == 1
+    assert "File not found" in result.output

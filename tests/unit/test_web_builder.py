@@ -29,6 +29,8 @@ def test_build_website_xss_protection():
             heading("<img src=x onerror=alert(1)>")
             paragraph("Safe & sound <tag>")
             link("Malicious Link", url = "javascript:alert('pwned')")
+            link("Obfuscated Link", url = "java\tscript:alert('pwned')")
+            button("Malicious Button", onclick = "document.cookie='steal'")
         ]
     ]"""
     result = build_website_from_source(src)
@@ -43,6 +45,10 @@ def test_build_website_xss_protection():
     # javascript: URL must be sanitized to '#'
     assert "javascript:" not in result.html
     assert 'href="#"' in result.html
+
+    # Dangerous onclick must be blocked
+    assert "document.cookie" not in result.html
+    assert "event blocked by ENT security policy" in result.html
 
 
 def test_build_website_from_file(tmp_path: Path):

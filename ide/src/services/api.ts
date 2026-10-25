@@ -45,3 +45,23 @@ export async function getExamples(): Promise<ExamplePrograms> {
   }
   return res.json();
 }
+
+export interface RenameResult {
+  success: boolean;
+  old_name: string;
+  new_name: string;
+  message: string;
+}
+
+export async function renameFile(oldName: string, newName: string): Promise<RenameResult> {
+  const res = await fetch(`${API_BASE}/files/rename`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ old_name: oldName, new_name: newName }),
+  });
+  if (!res.ok) {
+    const errorData = await res.json().catch(() => ({ detail: res.statusText }));
+    throw new Error(errorData.detail || `Rename failed with status ${res.status}`);
+  }
+  return res.json();
+}

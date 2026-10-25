@@ -41,10 +41,10 @@
 | **Conditionals & Loops** | ✅ Stable | `if / otherwise`, `repeat`, `while`, `for-in`. |
 | **User Functions** | ✅ Stable | `function name(args) [ ... ]` and `give` / `return`. |
 | **Standard Built-ins** | ✅ Stable | Math, string, and collection operations without explicit imports. |
-| **CLI Tool (`ent`)** | ✅ Stable | `ent <file>`, `ent check`, `ent repl`, `ent build`, `ent --version`. |
-| **Static Web Builder** | ✅ Stable | HTML5 & CSS generation with automatic XSS sanitization. |
-| **ENT Studio IDE** | ✅ Stable | Monaco Editor, React, TypeScript, live iframe preview, error diagnostics. |
-| **Test Suite** | ✅ 57/57 Passing | Unit, integration, CLI, API, and security sandboxing tests. |
+| **CLI Tool (`ent`)** | ✅ Stable | `ent <file>`, `ent check`, `ent repl`, `ent build`, `ent new`, `ent dev`, `ent --version`. |
+| **Static Web Builder** | ✅ Stable | HTML5 & CSS generation with automatic XSS sanitization and safe event validation. |
+| **ENT Studio IDE** | ✅ Stable | Monaco Editor, React, TypeScript, live iframe preview, inline file renaming (F2), error diagnostics. |
+| **Test Suite** | ✅ 77/77 Passing | Unit, integration, CLI, API, file rename, and security sandboxing tests. |
 
 ---
 
@@ -216,8 +216,14 @@ ent check script.ent
 # Launch interactive REPL
 ent repl
 
+# Scaffold a starter project
+ent new my-site
+
 # Compile static website
 ent build website.ent -o my_site/
+
+# Start local development server with live preview
+ent dev website.ent
 
 # Show version & help
 ent --version
@@ -287,7 +293,7 @@ ENT Studio is the official web-based IDE for ENT, featuring Monaco Editor, live 
 
 ## 🧪 Running Automated Tests
 
-Run the full automated test suite (57 passing tests):
+Run the full automated test suite (77 passing tests):
 
 ```bash
 pytest
@@ -299,7 +305,7 @@ Run test suites individually:
 # Unit tests: Lexer, Parser, Interpreter, Web Builder, Errors
 pytest tests/unit/
 
-# Integration tests: CLI and Backend API
+# Integration tests: CLI, Backend API, and File Renaming
 pytest tests/integration/
 
 # Security tests: Sandbox boundaries, step limits, recursion limits

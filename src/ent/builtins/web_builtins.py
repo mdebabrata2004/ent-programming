@@ -76,6 +76,16 @@ def make_web_builtins(output_sink: Optional[Callable[[str], None]] = None) -> Di
     def builtin_style(*args: EntValue, **kwargs: Any) -> EntValue:
         return EntNull()
 
+    def builtin_section(*args: EntValue, **kwargs: Any) -> EntValue:
+        title = args[0].to_display_string() if args else ""
+        log(f"[Section]{': ' + title if title else ''}")
+        return EntUIElement(tag="div", props={"class": "ent-section"}, children=[EntString(title)] if title else [])
+
+    def builtin_container(*args: EntValue, **kwargs: Any) -> EntValue:
+        title = args[0].to_display_string() if args else ""
+        log(f"[Container]{': ' + title if title else ''}")
+        return EntUIElement(tag="div", props={"class": "ent-container"}, children=[EntString(title)] if title else [])
+
     return {
         "heading": EntBuiltinFunction("heading", builtin_heading, doc="Renders a heading."),
         "paragraph": EntBuiltinFunction("paragraph", builtin_paragraph, doc="Renders a paragraph."),
@@ -83,4 +93,6 @@ def make_web_builtins(output_sink: Optional[Callable[[str], None]] = None) -> Di
         "link": EntBuiltinFunction("link", builtin_link, doc="Renders a hyperlink."),
         "image": EntBuiltinFunction("image", builtin_image, doc="Renders an image."),
         "style": EntBuiltinFunction("style", builtin_style, doc="Applies custom styling."),
+        "section": EntBuiltinFunction("section", builtin_section, doc="Renders a section container."),
+        "container": EntBuiltinFunction("container", builtin_container, doc="Renders a container."),
     }

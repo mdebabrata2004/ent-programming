@@ -233,6 +233,23 @@ body, html, #root {
   gap: 2px;
 }
 
+.ent-file-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: 5px;
+  position: relative;
+  transition: all 0.15s;
+}
+
+.ent-file-row:hover {
+  background-color: var(--surface);
+}
+
+.ent-file-row.active {
+  background-color: var(--surface);
+}
+
 .ent-file-item {
   display: flex;
   align-items: center;
@@ -245,18 +262,115 @@ body, html, #root {
   font-size: 0.85rem;
   cursor: pointer;
   text-align: left;
-  transition: all 0.15s;
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
-.ent-file-item:hover {
-  background-color: var(--surface);
-  color: var(--text-primary);
-}
-
-.ent-file-item.active {
-  background-color: var(--surface);
+.ent-file-row.active .ent-file-item {
   color: var(--accent-primary);
   font-weight: 600;
+}
+
+.ent-file-actions {
+  display: none;
+  padding-right: 0.5rem;
+}
+
+.ent-file-row:hover .ent-file-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.ent-file-action-icon {
+  background: transparent;
+  border: none;
+  color: var(--text-muted);
+  cursor: pointer;
+  padding: 2px;
+  border-radius: 3px;
+  display: flex;
+  align-items: center;
+}
+
+.ent-file-action-icon:hover {
+  color: var(--text-primary);
+  background-color: var(--border-color);
+}
+
+/* Inline Rename */
+.ent-inline-rename {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  width: 100%;
+  padding: 2px 4px;
+}
+
+.ent-rename-input {
+  flex: 1;
+  background-color: var(--bg-tertiary);
+  border: 1px solid var(--accent-primary);
+  color: var(--text-primary);
+  padding: 3px 6px;
+  font-size: 0.8rem;
+  border-radius: 4px;
+  outline: none;
+}
+
+.ent-rename-action-btn {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 2px;
+  border-radius: 3px;
+  display: flex;
+  align-items: center;
+}
+
+.ent-rename-action-btn.confirm {
+  color: var(--success-color);
+}
+
+.ent-rename-action-btn.cancel {
+  color: var(--error-color);
+}
+
+.ent-rename-action-btn:hover {
+  background-color: var(--surface);
+}
+
+/* Context Menu */
+.ent-context-menu {
+  position: fixed;
+  z-index: 1000;
+  background-color: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  padding: 4px 0;
+  min-width: 140px;
+}
+
+.ent-context-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  width: 100%;
+  padding: 6px 12px;
+  background: transparent;
+  border: none;
+  color: var(--text-primary);
+  font-size: 0.8rem;
+  cursor: pointer;
+  text-align: left;
+}
+
+.ent-context-item:hover {
+  background-color: var(--surface);
+  color: var(--accent-primary);
 }
 
 .ent-info-card {

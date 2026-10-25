@@ -82,6 +82,34 @@ Generated files:
 - `dist/index.html`
 - `dist/style.css`
 
+### Generate a New Project
+
+Scaffold a clean starter ENT website project:
+
+```bash
+ent new my-site
+```
+
+Creates:
+- `my-site/website.ent`: Fully configured starter website.
+- `my-site/README.md`: Project guide with commands.
+
+Validates that directory names contain no path traversals and will never silently overwrite existing files.
+
+### Development Preview Server
+
+Start a local development server for live preview and testing:
+
+```bash
+# Preview specific website
+ent dev website.ent
+
+# Or launch ENT Studio dev server
+ent dev --port 8000
+```
+
+Binds securely to localhost (`127.0.0.1`) by default.
+
 ---
 
 ## 3. Exit Codes

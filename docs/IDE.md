@@ -48,5 +48,12 @@ Open `http://127.0.0.1:8000` in your web browser.
 - **Execution Output Panel**: Live display of all output from `say(...)` calls.
 - **Live Sandboxed Web Preview**: Instant preview of websites generated from `page(...) [ ... ]` definitions.
 - **Diagnostics Panel**: Clear explanations of errors with source pointers and beginner tips.
-- **File Management**: Load built-in examples, create new scripts, import `.ent` files from your computer, or download edited scripts.
+- **File Management & Renaming**:
+  - Create new scripts, import `.ent` files from your computer, or download edited scripts.
+  - **Inline File Renaming**:
+    - Press **F2** on the active file, click the rename icon on hover, or right-click to select **Rename**.
+    - An inline input field appears, automatically pre-selecting the base filename while keeping the `.ent` extension.
+    - Press **Enter** to confirm the rename, or **Escape** to cancel.
+    - Path traversal attempts (`..`, `/`, `\`), empty names, invalid characters, and duplicate destinations are strictly blocked.
+    - All editor tabs and unsaved contents are synchronized automatically after a successful rename.
 - **Dark & Light Themes**: One-click toggle with accessible high-contrast color palettes.

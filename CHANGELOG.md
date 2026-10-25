@@ -26,15 +26,18 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - `ent check <file>`: Fast syntax validation.
   - `ent repl`: Interactive read-eval-print loop with multiline bracket matching.
   - `ent build <file>`: Static website compiler.
+  - `ent new <project-name>`: Starter website project generator with collision safety and validation.
+  - `ent dev [file.ent]`: Local development preview server with localhost binding.
   - `ent --version` and `ent --help`.
 - **Static Website Generation**:
-  - Web built-in primitives: `page`, `heading`, `paragraph`, `button`, `link`, `image`, `section`, `style`.
-  - Automatic XSS sanitization and semantic HTML5/CSS generation.
-- **ENT Studio Web IDE**:
+  - Web built-in primitives: `page`, `heading`, `paragraph`, `button`, `link`, `image`, `section`, `container`, `style`.
+  - Automatic XSS sanitization, obfuscated URI scheme protection, and safe inline event handler validation.
+- **ENT Studio Web IDE & File Management**:
   - Modern web IDE built with React, TypeScript, Vite, and Monaco Editor.
-  - Custom Monaco syntax highlighting for ENT and keyword autocompletion.
+  - Dedicated file renaming workflow: F2 shortcut, context menu, and hover action with inline input and extension preservation.
+  - Backend `POST /api/files/rename` endpoint with strict project root boundaries and collision prevention.
   - Real-time execution console, live sandboxed web preview iframe, and structured error diagnostics.
   - Local FastAPI execution engine with zero host pollution.
 - **Testing & Documentation**:
-  - 57 automated tests covering unit, integration, and security sandboxing.
+  - 77 automated tests covering unit, integration, CLI, API, file rename, and security sandboxing.
   - Comprehensive documentation in `docs/`: language spec, grammar, architecture, CLI, IDE, web development, security, roadmap, and FAQ.

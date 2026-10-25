@@ -150,12 +150,39 @@ footer.ent-footer {
 """
 
 
+DANGEROUS_JS_PATTERNS = [
+    r"eval\(",
+    r"Function\(",
+    r"document\.",
+    r"window\.",
+    r"location\.",
+    r"localStorage",
+    r"sessionStorage",
+    r"cookie",
+    r"fetch\(",
+    r"XMLHttpRequest",
+    r"<script",
+    r"__proto__",
+]
+
+
 def _sanitize_url(url: str) -> str:
-    """Disallows dangerous URI schemes like javascript: or data:."""
+    """Disallows dangerous URI schemes like javascript: or data:, even if obfuscated."""
     cleaned = url.strip()
-    if re.match(r"^\s*(javascript|data|vbscript):", cleaned, re.IGNORECASE):
+    # Strip whitespace and control characters to detect obfuscated schemes
+    stripped = re.sub(r"[\s\x00-\x1f\x7f]+", "", cleaned)
+    if re.match(r"^(javascript|data|vbscript):", stripped, re.IGNORECASE):
         return "#"
     return html.escape(cleaned, quote=True)
+
+
+def _sanitize_event_handler(code: str) -> str:
+    """Validates and restricts inline event handlers to safe operations."""
+    stripped = code.strip()
+    for pat in DANGEROUS_JS_PATTERNS:
+        if re.search(pat, stripped, re.IGNORECASE):
+            return "/* event blocked by ENT security policy */"
+    return html.escape(stripped, quote=True)
 
 
 class WebASTBuilder:
@@ -239,9 +266,19 @@ def build_website_from_source(source: str, file_path: str = "<stdin>") -> Genera
         text = args[0].to_display_string() if args else "Button"
         props: Dict[str, Any] = {"class": "ent-button"}
         if "onclick" in kwargs:
-            props["onclick"] = kwargs["onclick"].to_display_string()
+            props["onclick"] = _sanitize_event_handler(kwargs["onclick"].to_display_string())
         builder.add_element(UIElement(tag="button", props=props, text=text))
         return to_ent_value(None)
+
+    def builtin_section(*args: EntValue, **kwargs: Any) -> EntValue:
+        section_elem = UIElement(tag="div", props={"class": "ent-section"})
+        if args:
+            section_elem.text = args[0].to_display_string()
+        builder.add_element(section_elem)
+        return to_ent_value(None)
+
+    def builtin_container(*args: EntValue, **kwargs: Any) -> EntValue:
+        return builtin_section(*args, **kwargs)
 
     def builtin_link(*args: EntValue, **kwargs: Any) -> EntValue:
         text = args[0].to_display_string() if args else "Link"
@@ -276,6 +313,8 @@ def build_website_from_source(source: str, file_path: str = "<stdin>") -> Genera
     interp.global_scope.define("link", EntBuiltinFunction("link", builtin_link))
     interp.global_scope.define("image", EntBuiltinFunction("image", builtin_image))
     interp.global_scope.define("style", EntBuiltinFunction("style", builtin_style))
+    interp.global_scope.define("section", EntBuiltinFunction("section", builtin_section))
+    interp.global_scope.define("container", EntBuiltinFunction("container", builtin_container))
 
     # Execute
     res = interp.execute_program(program)

@@ -191,10 +191,122 @@ def build_command(
         raise typer.Exit(code=1)
 
 
+@app.command("new")
+def new_command(
+    project_name: str = typer.Argument(..., help="Name of the new ENT project to create."),
+) -> None:
+    """Generate a starter ENT website project."""
+    import re
+    name = project_name.strip()
+    if not name:
+        _print_err("[bold red]Error:[/bold red] Project name cannot be empty.")
+        raise typer.Exit(code=1)
+
+    # Validate characters (prevent traversal and invalid symbols)
+    if not re.match(r"^[a-zA-Z0-9_\-]+$", name):
+        _print_err(f"[bold red]Error:[/bold red] Invalid project name '{name}'. Use only alphanumeric characters, dashes, and underscores.")
+        raise typer.Exit(code=1)
+
+    proj_dir = Path(name)
+    if proj_dir.exists() and any(proj_dir.iterdir()):
+        _print_err(f"[bold red]Error:[/bold red] Directory '{name}' already exists and is not empty.")
+        raise typer.Exit(code=1)
+
+    try:
+        proj_dir.mkdir(parents=True, exist_ok=True)
+        website_file = proj_dir / "website.ent"
+        readme_file = proj_dir / "README.md"
+
+        starter_ent = f'''[
+    page(title = "Welcome to {name}") [
+        heading("Welcome to {name}", level = 1)
+        paragraph("This website was generated using 'ent new'.")
+
+        section() [
+            heading("Getting Started", level = 2)
+            paragraph("Edit website.ent to build your site with simple, readable English syntax.")
+            button("Click Me", onclick = "alert('Hello from {name}!')")
+            link("ENT Documentation", url = "https://github.com/debabrata/ent-programming")
+        ]
+    ]
+]
+'''
+        starter_readme = f'''# {name}
+
+An ENT Programming website project.
+
+## Getting Started
+
+1. **Run in console mode:**
+   ```bash
+   ent website.ent
+   ```
+
+2. **Validate syntax:**
+   ```bash
+   ent check website.ent
+   ```
+
+3. **Build production website:**
+   ```bash
+   ent build website.ent -o dist/
+   ```
+
+4. **Start local preview:**
+   ```bash
+   ent dev website.ent
+   ```
+'''
+        website_file.write_text(starter_ent, encoding="utf-8")
+        readme_file.write_text(starter_readme, encoding="utf-8")
+
+        _print_out(f"[bold green]Success:[/bold green] Created new ENT project in '{proj_dir}'.")
+        _print_out("Created files:")
+        _print_out(f"  • {website_file}")
+        _print_out(f"  • {readme_file}")
+        _print_out(f"\nTo get started:\n  cd {name}\n  ent website.ent")
+        raise typer.Exit(code=0)
+    except (typer.Exit, typer.Abort):
+        raise
+    except Exception as ex:
+        _print_err(f"[bold red]Error:[/bold red] Failed to create project: {ex}")
+        raise typer.Exit(code=1)
+
+
+@app.command("dev")
+def dev_command(
+    file: Optional[Path] = typer.Argument(None, help="Optional .ent file to preview."),
+    host: str = typer.Option("127.0.0.1", "--host", help="Bind host address."),
+    port: int = typer.Option(8000, "--port", "-p", help="Server port number."),
+) -> None:
+    """Start the local ENT development server and preview."""
+    import uvicorn
+    from ent.web.server import app as server_app
+
+    if file is not None:
+        if not file.exists():
+            _print_err(f"[bold red]Error:[/bold red] File not found: '{file}'")
+            raise typer.Exit(code=1)
+        _print_out(f"[bold cyan]Starting ENT preview server for '{file}'...[/bold cyan]")
+    else:
+        _print_out("[bold cyan]Starting ENT Studio development server...[/bold cyan]")
+
+    _print_out(f"Local URL: http://{host}:{port}")
+    _print_out("Press Ctrl+C to shut down.")
+
+    try:
+        uvicorn.run(server_app, host=host, port=port, log_level="info")
+    except (KeyboardInterrupt, SystemExit):
+        _print_out("\nServer stopped.")
+    except Exception as ex:
+        _print_err(f"[bold red]Server error:[/bold red] {ex}")
+        raise typer.Exit(code=1)
+
+
 def main() -> None:
     """Main CLI entrypoint with transparent 'ent <file>' support."""
     args = sys.argv[1:]
-    known_commands = {"run", "check", "repl", "build", "version"}
+    known_commands = {"run", "check", "repl", "build", "new", "dev", "version"}
     known_flags = {"--help", "-h", "--version", "-v"}
 
     # Handle --version flag directly
