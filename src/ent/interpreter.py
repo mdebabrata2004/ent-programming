@@ -197,8 +197,17 @@ class Interpreter:
             if self.custom_block_handler:
                 self.custom_block_handler(stmt, scope, self)
             else:
-                # Default fallback: evaluate block in new scope
+                # Default console mode execution for web and custom blocks
                 block_scope = Scope(parent=scope, name=stmt.name)
+                if stmt.name == "page":
+                    title = "ENT Website"
+                    if "title" in stmt.kwargs:
+                        title = self.evaluate_expression(stmt.kwargs["title"], scope).to_display_string()
+                    elif stmt.args:
+                        title = self.evaluate_expression(stmt.args[0], scope).to_display_string()
+                    self.output_sink(f"[Page: {title}]")
+                elif stmt.name in ("section", "container", "box"):
+                    self.output_sink(f"[{stmt.name.capitalize()}]")
                 self.execute_block(stmt.body, block_scope)
 
         elif isinstance(stmt, ExpressionStatement):

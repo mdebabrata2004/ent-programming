@@ -38,6 +38,7 @@ from ent.builtins.strings import (
     builtin_reverse,
     builtin_range,
 )
+from ent.builtins.web_builtins import make_web_builtins
 
 
 def register_standard_builtins(scope: Scope, output_sink: Optional[Callable[[str], None]] = None) -> None:
@@ -76,3 +77,7 @@ def register_standard_builtins(scope: Scope, output_sink: Optional[Callable[[str
     scope.define("last", EntBuiltinFunction("last", builtin_last))
     scope.define("reverse", EntBuiltinFunction("reverse", builtin_reverse))
     scope.define("range", EntBuiltinFunction("range", builtin_range))
+
+    # Web built-ins
+    for name, fn_obj in make_web_builtins(output_sink=sink).items():
+        scope.define(name, fn_obj)

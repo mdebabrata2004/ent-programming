@@ -164,3 +164,25 @@ def test_builtins_list_operations():
         "3",
         "3-2-1",
     ]
+
+
+def test_interpret_website_in_console_mode():
+    src = """[
+        page(title = "Welcome to ENT Programming") [
+            heading("Build Websites with Simple English", level = 1)
+            paragraph("ENT is a beginner-friendly language.")
+            section() [
+                heading("Why ENT?", level = 2)
+                button("Click Me")
+                link("Docs", url = "https://example.com")
+            ]
+        ]
+    ]"""
+    res = run_ent(src)
+    assert res.success is True
+    assert "[Page: Welcome to ENT Programming]" in res.output_lines
+    assert "[Heading 1]: Build Websites with Simple English" in res.output_lines
+    assert "[Paragraph]: ENT is a beginner-friendly language." in res.output_lines
+    assert "[Section]" in res.output_lines
+    assert "[Button]: Click Me" in res.output_lines
+    assert "[Link]: Docs (https://example.com)" in res.output_lines
