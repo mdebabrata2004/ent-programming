@@ -1,0 +1,11 @@
+[
+    repeat (3 as i) [
+        say("Repeat index: " + i)
+    ]
+
+    remember(count = 0)
+    while (count < 3) [
+        say("While count: " + count)
+        count = count + 1
+    ]
+]

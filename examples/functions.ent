@@ -1,0 +1,8 @@
+[
+    function add(a, b) [
+        give a + b
+    ]
+
+    remember(result = add(10, 25))
+    say("10 + 25 = " + result)
+]

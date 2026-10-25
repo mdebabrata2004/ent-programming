@@ -1,0 +1,9 @@
+[
+    remember(age = 20)
+
+    if (age >= 18) [
+        say("Adult")
+    ] otherwise [
+        say("Minor")
+    ]
+]

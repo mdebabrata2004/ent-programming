@@ -1,0 +1,18 @@
+[
+    page(title = "Welcome to ENT Programming") [
+        heading("Build Websites with Simple English", level = 1)
+        paragraph("ENT is a beginner-friendly, English-readable programming language designed for everyone.")
+
+        section() [
+            heading("Why ENT?", level = 2)
+            paragraph("Traditional programming languages require memorizing complex symbols and curly braces. ENT keeps everything readable and intuitive.")
+            button("Get Started", onclick = "alert('Welcome to ENT!')")
+            link("Read the Docs", url = "https://github.com/debabrata/ent-programming")
+        ]
+
+        section() [
+            heading("Language Features", level = 2)
+            paragraph("Deterministic Pratt parsing, execution step sandboxing, zero Python eval/exec, and instant web generation.")
+        ]
+    ]
+]

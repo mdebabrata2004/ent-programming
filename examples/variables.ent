@@ -1,0 +1,7 @@
+[
+    remember(name = "ENT")
+    remember(version = "0.1.0")
+
+    say("Welcome to " + name)
+    say("Version: " + version)
+]
