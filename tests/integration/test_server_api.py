@@ -1,6 +1,6 @@
 import pytest
 from fastapi.testclient import TestClient
-from ent.web.server import app
+from ent.web.server import app, IDE_DIST_DIR
 
 client = TestClient(app)
 
@@ -69,6 +69,8 @@ def test_api_build_website():
 
 
 def test_serve_ide_frontend():
+    if not (IDE_DIST_DIR / "index.html").exists():
+        pytest.skip("IDE dist not built; run 'npm --prefix ide run build' to test static frontend serving.")
     response = client.get("/")
     assert response.status_code == 200
     assert "ENT Studio" in response.text

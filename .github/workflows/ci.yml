@@ -11,6 +11,7 @@ jobs:
     name: Python Test Suite (${{ matrix.os }}, Py ${{ matrix.python-version }})
     runs-on: ${{ matrix.os }}
     strategy:
+      fail-fast: false
       matrix:
         os: [ubuntu-latest, windows-latest]
         python-version: ["3.11", "3.12"]
@@ -31,14 +32,14 @@ jobs:
 
       - name: Run Pytest Test Suite
         run: |
-          pytest -v
+          python -m pytest -v
 
       - name: Verify CLI Executable
         run: |
-          ent --version
-          ent examples/hello.ent
-          ent check examples/website.ent
-          ent build examples/website.ent -o dist_test
+          python -m ent.cli --version
+          python -m ent.cli examples/hello.ent
+          python -m ent.cli check examples/website.ent
+          python -m ent.cli build examples/website.ent -o dist_test
 
   build-ide:
     name: Build ENT Studio Web IDE
