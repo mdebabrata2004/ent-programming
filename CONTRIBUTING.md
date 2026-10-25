@@ -22,7 +22,7 @@ We are committed to providing a welcoming, inclusive, and harassment-free enviro
 ### 1. Clone & Set Up Python Environment
 
 ```bash
-git clone https://github.com/debabrata/ent-programming.git
+git clone https://github.com/mdebabrata2004/ent-programming.git
 cd ent-programming
 
 # Create virtual environment (optional but recommended)

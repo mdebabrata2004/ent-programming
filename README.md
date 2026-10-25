@@ -80,7 +80,7 @@
 Clone the repository and install the project in editable mode:
 
 ```bash
-git clone https://github.com/debabrata/ent-programming.git
+git clone https://github.com/mdebabrata2004/ent-programming.git
 cd ent-programming
 
 # Install ENT CLI and dependencies
@@ -196,7 +196,7 @@ Hello, World!
             heading("Getting Started", level = 2)
             paragraph("Write simple English code and compile to production HTML & CSS.")
             button("Click Me", onclick = "alert('Welcome!')")
-            link("Read Documentation", url = "https://github.com/debabrata/ent-programming")
+            link("Read Documentation", url = "https://github.com/mdebabrata2004/ent-programming")
         ]
     ]
 ]

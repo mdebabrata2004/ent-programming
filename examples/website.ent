@@ -7,7 +7,7 @@
             heading("Why ENT?", level = 2)
             paragraph("Traditional programming languages require memorizing complex symbols and curly braces. ENT keeps everything readable and intuitive.")
             button("Get Started", onclick = "alert('Welcome to ENT!')")
-            link("Read the Docs", url = "https://github.com/debabrata/ent-programming")
+            link("Read the Docs", url = "https://github.com/mdebabrata2004/ent-programming")
         ]
 
         section() [

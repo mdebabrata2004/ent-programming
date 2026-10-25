@@ -10,8 +10,9 @@ readme = "README.md"
 requires-python = ">=3.11"
 license = { text = "MIT" }
 authors = [
-    { name = "ENT Programming Team" }
+    { name = "Debabrata Mondal", email = "m.debabrata3773@gmail.com" }
 ]
+urls = { "Homepage" = "https://github.com/mdebabrata2004/ent-programming", "Repository" = "https://github.com/mdebabrata2004/ent-programming", "Issues" = "https://github.com/mdebabrata2004/ent-programming/issues" }
 keywords = ["programming-language", "compiler", "interpreter", "dsl", "web-development"]
 classifiers = [
     "Development Status :: 4 - Beta",

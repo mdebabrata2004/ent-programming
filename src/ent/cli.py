@@ -226,7 +226,7 @@ def new_command(
             heading("Getting Started", level = 2)
             paragraph("Edit website.ent to build your site with simple, readable English syntax.")
             button("Click Me", onclick = "alert('Hello from {name}!')")
-            link("ENT Documentation", url = "https://github.com/debabrata/ent-programming")
+            link("ENT Documentation", url = "https://github.com/mdebabrata2004/ent-programming")
         ]
     ]
 ]

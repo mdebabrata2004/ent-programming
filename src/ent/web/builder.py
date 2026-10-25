@@ -370,7 +370,7 @@ def _render_page_html(page: PageModel) -> str:
   <div class="ent-container">
 {elements_markup}
     <footer class="ent-footer">
-      Built with <a href="https://github.com/debabrata/ent-programming" class="ent-link">ENT Programming</a>
+      Built with <a href="https://github.com/mdebabrata2004/ent-programming" class="ent-link">ENT Programming</a>
     </footer>
   </div>
 </body>

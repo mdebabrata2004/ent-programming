@@ -17,7 +17,7 @@ It eliminates the complexity of learning HTML, CSS syntax, and server configurat
             heading("About Me", level = 2)
             paragraph("I am learning to program with ENT.")
             button("Contact Me", onclick = "alert('Thanks for visiting!')")
-            link("Visit GitHub", url = "https://github.com/debabrata/ent-programming")
+            link("Visit GitHub", url = "https://github.com/mdebabrata2004/ent-programming")
         ]
     ]
 ]
