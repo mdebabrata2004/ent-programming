@@ -52,3 +52,7 @@ yarn-error.log*
 # OS files
 .DS_Store
 Thumbs.db
+
+# Local Project Memory (Never Push)
+MEMORY.md
+
