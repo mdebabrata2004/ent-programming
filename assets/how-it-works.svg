@@ -1,0 +1,104 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 250" width="1100" height="250" fill="none">
+  <defs>
+    <linearGradient id="cardBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1E293B" />
+      <stop offset="100%" stop-color="#0F172A" />
+    </linearGradient>
+    <linearGradient id="borderGrad1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#38BDF8" />
+      <stop offset="100%" stop-color="#0284C7" />
+    </linearGradient>
+    <linearGradient id="borderGrad2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#818CF8" />
+      <stop offset="100%" stop-color="#4F46E5" />
+    </linearGradient>
+    <linearGradient id="borderGrad3" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#34D399" />
+      <stop offset="100%" stop-color="#059669" />
+    </linearGradient>
+    <linearGradient id="borderGrad4" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#F472B6" />
+      <stop offset="100%" stop-color="#DB2777" />
+    </linearGradient>
+  </defs>
+
+  <style>
+    .sans { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; }
+    .mono { font-family: 'Fira Code', Consolas, monospace; }
+  </style>
+
+  <!-- Step 1: Write Simple Code -->
+  <g transform="translate(20, 20)">
+    <rect width="230" height="200" rx="14" fill="url(#cardBg)" stroke="url(#borderGrad1)" stroke-width="2" />
+    <circle cx="36" cy="38" r="16" fill="#0369A1" />
+    <text x="36" y="44" class="sans" font-size="15" font-weight="800" fill="#F8FAFC" text-anchor="middle">1</text>
+    
+    <text x="64" y="43" class="sans" font-size="15" font-weight="800" fill="#F8FAFC">Write English Code</text>
+    <text x="24" y="82" class="sans" font-size="12" fill="#94A3B8">
+      <tspan x="24" dy="0">• Clean [ ... ] brackets</tspan>
+      <tspan x="24" dy="22">• Zero curly braces { }</tspan>
+      <tspan x="24" dy="22">• say("Hello"), page(...)</tspan>
+      <tspan x="24" dy="22">• Natural English syntax</tspan>
+    </text>
+  </g>
+
+  <!-- Arrow 1 -->
+  <g transform="translate(262, 105)">
+    <path d="M 0 10 L 22 10 M 14 2 L 22 10 L 14 18" stroke="#38BDF8" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
+  </g>
+
+  <!-- Step 2: Custom Compiler -->
+  <g transform="translate(295, 20)">
+    <rect width="230" height="200" rx="14" fill="url(#cardBg)" stroke="url(#borderGrad2)" stroke-width="2" />
+    <circle cx="36" cy="38" r="16" fill="#4338CA" />
+    <text x="36" y="44" class="sans" font-size="15" font-weight="800" fill="#F8FAFC" text-anchor="middle">2</text>
+    
+    <text x="64" y="43" class="sans" font-size="15" font-weight="800" fill="#F8FAFC">Custom Compiler</text>
+    <text x="24" y="82" class="sans" font-size="12" fill="#94A3B8">
+      <tspan x="24" dy="0">• Handcrafted Lexer</tspan>
+      <tspan x="24" dy="22">• Pratt Recursive Parser</tspan>
+      <tspan x="24" dy="22">• Structured AST Tree</tspan>
+      <tspan x="24" dy="22">• Zero Python eval/exec</tspan>
+    </text>
+  </g>
+
+  <!-- Arrow 2 -->
+  <g transform="translate(537, 105)">
+    <path d="M 0 10 L 22 10 M 14 2 L 22 10 L 14 18" stroke="#818CF8" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
+  </g>
+
+  <!-- Step 3: Sandboxed Execution -->
+  <g transform="translate(570, 20)">
+    <rect width="230" height="200" rx="14" fill="url(#cardBg)" stroke="url(#borderGrad3)" stroke-width="2" />
+    <circle cx="36" cy="38" r="16" fill="#047857" />
+    <text x="36" y="44" class="sans" font-size="15" font-weight="800" fill="#F8FAFC" text-anchor="middle">3</text>
+    
+    <text x="64" y="43" class="sans" font-size="15" font-weight="800" fill="#F8FAFC">Dual Engine Output</text>
+    <text x="24" y="82" class="sans" font-size="12" fill="#94A3B8">
+      <tspan x="24" dy="0">• Static Web Builder</tspan>
+      <tspan x="24" dy="22">• HTML5 + CSS3 Output</tspan>
+      <tspan x="24" dy="22">• Step &amp; Depth Sandboxed</tspan>
+      <tspan x="24" dy="22">• Automated XSS Defense</tspan>
+    </text>
+  </g>
+
+  <!-- Arrow 3 -->
+  <g transform="translate(812, 105)">
+    <path d="M 0 10 L 22 10 M 14 2 L 22 10 L 14 18" stroke="#34D399" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
+  </g>
+
+  <!-- Step 4: IDE & CLI -->
+  <g transform="translate(845, 20)">
+    <rect width="235" height="200" rx="14" fill="url(#cardBg)" stroke="url(#borderGrad4)" stroke-width="2" />
+    <circle cx="36" cy="38" r="16" fill="#BE185D" />
+    <text x="36" y="44" class="sans" font-size="15" font-weight="800" fill="#F8FAFC" text-anchor="middle">4</text>
+    
+    <text x="64" y="43" class="sans" font-size="15" font-weight="800" fill="#F8FAFC">IDE &amp; CLI Experience</text>
+    <text x="24" y="82" class="sans" font-size="12" fill="#94A3B8">
+      <tspan x="24" dy="0">• Monaco Web Studio IDE</tspan>
+      <tspan x="24" dy="22">• Live Iframe Previews</tspan>
+      <tspan x="24" dy="22">• CLI: ent run, ent dev</tspan>
+      <tspan x="24" dy="22">• Scaffolding with ent new</tspan>
+    </text>
+  </g>
+</svg>
