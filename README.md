@@ -5,6 +5,13 @@
 </p>
 
 <p align="center">
+  <a href="https://github.com/mdebabrata2004/ent-programming/actions/workflows/ci.yml"><img src="https://github.com/mdebabrata2004/ent-programming/actions/workflows/ci.yml/badge.svg" alt="CI Status"></a>
+  <a href="https://opensource.org/licenses/MIT"><img src="https://img.shields.io/badge/License-MIT-blue.svg" alt="License: MIT"></a>
+  <a href="https://www.python.org/downloads/"><img src="https://img.shields.io/badge/python-3.11%20%7C%203.12-brightgreen.svg" alt="Python Version"></a>
+  <img src="https://img.shields.io/badge/tests-77%20passed-success.svg" alt="Tests">
+</p>
+
+<p align="center">
   <a href="#quick-start">Quick Start</a> •
   <a href="#language-syntax">Language Syntax</a> •
   <a href="#cli-usage">CLI Usage</a> •
