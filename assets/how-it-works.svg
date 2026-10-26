@@ -1,104 +1,175 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 250" width="1100" height="250" fill="none">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1120 280" width="1120" height="280" fill="none">
   <defs>
-    <linearGradient id="cardBg" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#1E293B" />
-      <stop offset="100%" stop-color="#0F172A" />
+    <!-- Background Gradient -->
+    <linearGradient id="hiwBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#080C14" />
+      <stop offset="50%" stop-color="#0F172A" />
+      <stop offset="100%" stop-color="#050811" />
     </linearGradient>
-    <linearGradient id="borderGrad1" x1="0%" y1="0%" x2="100%" y2="100%">
+
+    <!-- Card Background -->
+    <linearGradient id="stepCardBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1A2234" />
+      <stop offset="100%" stop-color="#0D131F" />
+    </linearGradient>
+
+    <!-- Card Border Gradients -->
+    <linearGradient id="step1Grad" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" stop-color="#38BDF8" />
       <stop offset="100%" stop-color="#0284C7" />
     </linearGradient>
-    <linearGradient id="borderGrad2" x1="0%" y1="0%" x2="100%" y2="100%">
+
+    <linearGradient id="step2Grad" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" stop-color="#818CF8" />
       <stop offset="100%" stop-color="#4F46E5" />
     </linearGradient>
-    <linearGradient id="borderGrad3" x1="0%" y1="0%" x2="100%" y2="100%">
+
+    <linearGradient id="step3Grad" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" stop-color="#34D399" />
       <stop offset="100%" stop-color="#059669" />
     </linearGradient>
-    <linearGradient id="borderGrad4" x1="0%" y1="0%" x2="100%" y2="100%">
+
+    <linearGradient id="step4Grad" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" stop-color="#F472B6" />
       <stop offset="100%" stop-color="#DB2777" />
     </linearGradient>
+
+    <!-- Drop Shadow -->
+    <filter id="hiwShadow" x="-10%" y="-10%" width="120%" height="125%">
+      <feDropShadow dx="0" dy="12" stdDeviation="16" flood-color="#000000" flood-opacity="0.6" />
+    </filter>
   </defs>
 
   <style>
-    .sans { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; }
-    .mono { font-family: 'Fira Code', Consolas, monospace; }
+    .sans { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; }
+    .mono { font-family: 'Cascadia Code', 'Fira Code', 'JetBrains Mono', Consolas, monospace; }
   </style>
 
-  <!-- Step 1: Write Simple Code -->
-  <g transform="translate(20, 20)">
-    <rect width="230" height="200" rx="14" fill="url(#cardBg)" stroke="url(#borderGrad1)" stroke-width="2" />
-    <circle cx="36" cy="38" r="16" fill="#0369A1" />
-    <text x="36" y="44" class="sans" font-size="15" font-weight="800" fill="#F8FAFC" text-anchor="middle">1</text>
+  <!-- Background Base -->
+  <rect width="1120" height="280" fill="url(#hiwBg)" rx="16" />
+
+  <!-- Subtle Blueprint Tech Lines -->
+  <g opacity="0.04" stroke="#94A3B8" stroke-width="1">
+    <path d="M 0 70 L 1120 70 M 0 140 L 1120 140 M 0 210 L 1120 210" />
+    <path d="M 140 0 L 140 280 M 280 0 L 280 280 M 420 0 L 420 280 M 560 0 L 560 280 M 700 0 L 700 280 M 840 0 L 840 280 M 980 0 L 980 280" />
+  </g>
+
+  <!-- ================= STEP 1: WRITE ENGLISH CODE ================= -->
+  <g transform="translate(24, 25)" filter="url(#hiwShadow)">
+    <rect width="240" height="230" rx="14" fill="url(#stepCardBg)" stroke="url(#step1Grad)" stroke-width="1.8" />
     
-    <text x="64" y="43" class="sans" font-size="15" font-weight="800" fill="#F8FAFC">Write English Code</text>
-    <text x="24" y="82" class="sans" font-size="12" fill="#94A3B8">
-      <tspan x="24" dy="0">• Clean [ ... ] brackets</tspan>
-      <tspan x="24" dy="22">• Zero curly braces { }</tspan>
-      <tspan x="24" dy="22">• say("Hello"), page(...)</tspan>
-      <tspan x="24" dy="22">• Natural English syntax</tspan>
-    </text>
+    <!-- Top Step Pill -->
+    <g transform="translate(18, 18)">
+      <rect width="32" height="32" rx="10" fill="#0369A1" />
+      <text x="16" y="22" class="sans" font-size="16" font-weight="900" fill="#F8FAFC" text-anchor="middle">1</text>
+      <text x="44" y="16" class="sans" font-size="14.5" font-weight="800" fill="#F8FAFC">English Source</text>
+      <text x="44" y="30" class="mono" font-size="10.5" fill="#38BDF8">*.ent syntax</text>
+    </g>
+
+    <!-- Details List -->
+    <g transform="translate(20, 78)" class="sans" font-size="12">
+      <text x="0" y="18" fill="#E2E8F0" font-weight="600">Pure [ ... ] Block Scopes</text>
+      <text x="0" y="34" fill="#94A3B8">Deterministic structure</text>
+
+      <text x="0" y="64" fill="#E2E8F0" font-weight="600">Zero Curly Braces { }</text>
+      <text x="0" y="80" fill="#94A3B8">Strictly forbidden by design</text>
+
+      <text x="0" y="110" fill="#E2E8F0" font-weight="600">Natural Built-in Verbs</text>
+      <text x="0" y="126" fill="#38BDF8" class="mono" font-size="11">say, page, remember</text>
+    </g>
   </g>
 
-  <!-- Arrow 1 -->
-  <g transform="translate(262, 105)">
-    <path d="M 0 10 L 22 10 M 14 2 L 22 10 L 14 18" stroke="#38BDF8" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
+  <!-- Arrow 1 to 2 -->
+  <g transform="translate(268, 130)">
+    <circle cx="11" cy="10" r="14" fill="#090D16" stroke="#38BDF8" stroke-width="1.4" />
+    <path d="M 6 10 L 15 10 M 11 6 L 15 10 L 11 14" stroke="#38BDF8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
   </g>
 
-  <!-- Step 2: Custom Compiler -->
-  <g transform="translate(295, 20)">
-    <rect width="230" height="200" rx="14" fill="url(#cardBg)" stroke="url(#borderGrad2)" stroke-width="2" />
-    <circle cx="36" cy="38" r="16" fill="#4338CA" />
-    <text x="36" y="44" class="sans" font-size="15" font-weight="800" fill="#F8FAFC" text-anchor="middle">2</text>
+  <!-- ================= STEP 2: PRATT COMPILER ================= -->
+  <g transform="translate(298, 25)" filter="url(#hiwShadow)">
+    <rect width="240" height="230" rx="14" fill="url(#stepCardBg)" stroke="url(#step2Grad)" stroke-width="1.8" />
     
-    <text x="64" y="43" class="sans" font-size="15" font-weight="800" fill="#F8FAFC">Custom Compiler</text>
-    <text x="24" y="82" class="sans" font-size="12" fill="#94A3B8">
-      <tspan x="24" dy="0">• Handcrafted Lexer</tspan>
-      <tspan x="24" dy="22">• Pratt Recursive Parser</tspan>
-      <tspan x="24" dy="22">• Structured AST Tree</tspan>
-      <tspan x="24" dy="22">• Zero Python eval/exec</tspan>
-    </text>
+    <!-- Top Step Pill -->
+    <g transform="translate(18, 18)">
+      <rect width="32" height="32" rx="10" fill="#4338CA" />
+      <text x="16" y="22" class="sans" font-size="16" font-weight="900" fill="#F8FAFC" text-anchor="middle">2</text>
+      <text x="44" y="16" class="sans" font-size="14.5" font-weight="800" fill="#F8FAFC">Pratt Compiler</text>
+      <text x="44" y="30" class="mono" font-size="10.5" fill="#818CF8">Lexer &amp; Parser</text>
+    </g>
+
+    <!-- Details List -->
+    <g transform="translate(20, 78)" class="sans" font-size="12">
+      <text x="0" y="18" fill="#E2E8F0" font-weight="600">Handcrafted Lexer</text>
+      <text x="0" y="34" fill="#94A3B8">Exact token streaming</text>
+
+      <text x="0" y="64" fill="#E2E8F0" font-weight="600">Pratt Recursive Parser</text>
+      <text x="0" y="80" fill="#94A3B8">Operator precedence AST</text>
+
+      <text x="0" y="110" fill="#E2E8F0" font-weight="600">Strictly Isolated</text>
+      <text x="0" y="126" fill="#818CF8" class="mono" font-size="11">Zero eval() or exec()</text>
+    </g>
   </g>
 
-  <!-- Arrow 2 -->
-  <g transform="translate(537, 105)">
-    <path d="M 0 10 L 22 10 M 14 2 L 22 10 L 14 18" stroke="#818CF8" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
+  <!-- Arrow 2 to 3 -->
+  <g transform="translate(542, 130)">
+    <circle cx="11" cy="10" r="14" fill="#090D16" stroke="#818CF8" stroke-width="1.4" />
+    <path d="M 6 10 L 15 10 M 11 6 L 15 10 L 11 14" stroke="#818CF8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
   </g>
 
-  <!-- Step 3: Sandboxed Execution -->
-  <g transform="translate(570, 20)">
-    <rect width="230" height="200" rx="14" fill="url(#cardBg)" stroke="url(#borderGrad3)" stroke-width="2" />
-    <circle cx="36" cy="38" r="16" fill="#047857" />
-    <text x="36" y="44" class="sans" font-size="15" font-weight="800" fill="#F8FAFC" text-anchor="middle">3</text>
+  <!-- ================= STEP 3: DUAL EXECUTION ENGINE ================= -->
+  <g transform="translate(572, 25)" filter="url(#hiwShadow)">
+    <rect width="240" height="230" rx="14" fill="url(#stepCardBg)" stroke="url(#step3Grad)" stroke-width="1.8" />
     
-    <text x="64" y="43" class="sans" font-size="15" font-weight="800" fill="#F8FAFC">Dual Engine Output</text>
-    <text x="24" y="82" class="sans" font-size="12" fill="#94A3B8">
-      <tspan x="24" dy="0">• Static Web Builder</tspan>
-      <tspan x="24" dy="22">• HTML5 + CSS3 Output</tspan>
-      <tspan x="24" dy="22">• Step &amp; Depth Sandboxed</tspan>
-      <tspan x="24" dy="22">• Automated XSS Defense</tspan>
-    </text>
+    <!-- Top Step Pill -->
+    <g transform="translate(18, 18)">
+      <rect width="32" height="32" rx="10" fill="#047857" />
+      <text x="16" y="22" class="sans" font-size="16" font-weight="900" fill="#F8FAFC" text-anchor="middle">3</text>
+      <text x="44" y="16" class="sans" font-size="14.5" font-weight="800" fill="#F8FAFC">Dual Engine</text>
+      <text x="44" y="30" class="mono" font-size="10.5" fill="#34D399">Builder &amp; Sandbox</text>
+    </g>
+
+    <!-- Details List -->
+    <g transform="translate(20, 78)" class="sans" font-size="12">
+      <text x="0" y="18" fill="#E2E8F0" font-weight="600">Static Web Generator</text>
+      <text x="0" y="34" fill="#94A3B8">Compiles HTML5 &amp; CSS3</text>
+
+      <text x="0" y="64" fill="#E2E8F0" font-weight="600">Sandboxed Runtime</text>
+      <text x="0" y="80" fill="#94A3B8">Step-budget &amp; depth limits</text>
+
+      <text x="0" y="110" fill="#E2E8F0" font-weight="600">Safety by Default</text>
+      <text x="0" y="126" fill="#34D399" class="mono" font-size="11">XSS auto-sanitized</text>
+    </g>
   </g>
 
-  <!-- Arrow 3 -->
-  <g transform="translate(812, 105)">
-    <path d="M 0 10 L 22 10 M 14 2 L 22 10 L 14 18" stroke="#34D399" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
+  <!-- Arrow 3 to 4 -->
+  <g transform="translate(816, 130)">
+    <circle cx="11" cy="10" r="14" fill="#090D16" stroke="#34D399" stroke-width="1.4" />
+    <path d="M 6 10 L 15 10 M 11 6 L 15 10 L 11 14" stroke="#34D399" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
   </g>
 
-  <!-- Step 4: IDE & CLI -->
-  <g transform="translate(845, 20)">
-    <rect width="235" height="200" rx="14" fill="url(#cardBg)" stroke="url(#borderGrad4)" stroke-width="2" />
-    <circle cx="36" cy="38" r="16" fill="#BE185D" />
-    <text x="36" y="44" class="sans" font-size="15" font-weight="800" fill="#F8FAFC" text-anchor="middle">4</text>
+  <!-- ================= STEP 4: DEVELOPER ECOSYSTEM ================= -->
+  <g transform="translate(846, 25)" filter="url(#hiwShadow)">
+    <rect width="250" height="230" rx="14" fill="url(#stepCardBg)" stroke="url(#step4Grad)" stroke-width="1.8" />
     
-    <text x="64" y="43" class="sans" font-size="15" font-weight="800" fill="#F8FAFC">IDE &amp; CLI Experience</text>
-    <text x="24" y="82" class="sans" font-size="12" fill="#94A3B8">
-      <tspan x="24" dy="0">• Monaco Web Studio IDE</tspan>
-      <tspan x="24" dy="22">• Live Iframe Previews</tspan>
-      <tspan x="24" dy="22">• CLI: ent run, ent dev</tspan>
-      <tspan x="24" dy="22">• Scaffolding with ent new</tspan>
-    </text>
+    <!-- Top Step Pill -->
+    <g transform="translate(18, 18)">
+      <rect width="32" height="32" rx="10" fill="#9D174D" />
+      <text x="16" y="22" class="sans" font-size="16" font-weight="900" fill="#F8FAFC" text-anchor="middle">4</text>
+      <text x="44" y="16" class="sans" font-size="14.5" font-weight="800" fill="#F8FAFC">Developer Suite</text>
+      <text x="44" y="30" class="mono" font-size="10.5" fill="#F472B6">IDE &amp; CLI Tools</text>
+    </g>
+
+    <!-- Details List -->
+    <g transform="translate(20, 78)" class="sans" font-size="12">
+      <text x="0" y="18" fill="#E2E8F0" font-weight="600">ENT Studio Web IDE</text>
+      <text x="0" y="34" fill="#94A3B8">Monaco editor &amp; live preview</text>
+
+      <text x="0" y="64" fill="#E2E8F0" font-weight="600">Full CLI Toolkit</text>
+      <text x="0" y="80" fill="#94A3B8">run, check, build, new, dev</text>
+
+      <text x="0" y="110" fill="#E2E8F0" font-weight="600">Instant Live Reload</text>
+      <text x="0" y="126" fill="#F472B6" class="mono" font-size="11">FastAPI dev server</text>
+    </g>
   </g>
+
 </svg>

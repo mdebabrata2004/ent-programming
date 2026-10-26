@@ -1,59 +1,91 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 260" width="1000" height="260" fill="none">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1060 310" width="1060" height="310" fill="none">
   <defs>
+    <!-- Background Gradients -->
     <linearGradient id="badBg" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#1C1917" />
-      <stop offset="100%" stop-color="#0C0A09" />
+      <stop offset="0%" stop-color="#181313" />
+      <stop offset="100%" stop-color="#0F0D0D" />
     </linearGradient>
+
     <linearGradient id="goodBg" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" stop-color="#0F172A" />
-      <stop offset="100%" stop-color="#020617" />
+      <stop offset="100%" stop-color="#060913" />
     </linearGradient>
+
+    <linearGradient id="goodBorder" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#38BDF8" />
+      <stop offset="50%" stop-color="#10B981" />
+      <stop offset="100%" stop-color="#34D399" />
+    </linearGradient>
+
+    <filter id="boxShadow" x="-5%" y="-5%" width="110%" height="115%">
+      <feDropShadow dx="0" dy="12" stdDeviation="16" flood-color="#000000" flood-opacity="0.6" />
+    </filter>
   </defs>
 
   <style>
-    .sans { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; }
-    .mono { font-family: 'Fira Code', 'Cascadia Code', Consolas, monospace; }
+    .sans { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; }
+    .mono { font-family: 'Cascadia Code', 'Fira Code', 'JetBrains Mono', Consolas, monospace; }
   </style>
 
-  <!-- Left: Traditional Languages (Red/Warning theme) -->
-  <g transform="translate(20, 20)">
-    <rect width="460" height="220" rx="14" fill="url(#badBg)" stroke="#EF4444" stroke-width="1.5" />
+  <!-- ================= LEFT: TRADITIONAL WEB STACK ================= -->
+  <g transform="translate(20, 16)" filter="url(#boxShadow)">
+    <rect width="495" height="276" rx="14" fill="url(#badBg)" stroke="#EF4444" stroke-width="1.4" stroke-opacity="0.8" />
     
-    <!-- Header -->
-    <path d="M 0 14 C 0 6.27 6.27 0 14 0 L 446 0 C 453.73 0 460 6.27 460 14 L 460 36 L 0 36 Z" fill="#292524" />
-    <circle cx="20" cy="18" r="5" fill="#EF4444" />
-    <text x="36" y="22" class="sans" font-size="12" font-weight="700" fill="#EF4444">❌ Traditional Languages (Complex &amp; Cluttered)</text>
+    <!-- Title Bar -->
+    <path d="M 0 14 C 0 6.27 6.27 0 14 0 L 481 0 C 488.73 0 495 6.27 495 14 L 495 38 L 0 38 Z" fill="#241414" />
+    <circle cx="20" cy="19" r="5" fill="#EF4444" />
+    <circle cx="36" cy="19" r="5" fill="#4B2020" />
+    <circle cx="52" cy="19" r="5" fill="#4B2020" />
+    <text x="68" y="23" class="sans" font-size="12" font-weight="700" fill="#F87171">Traditional Languages (Symbol-Heavy Boilerplate)</text>
 
-    <!-- Code Sample -->
-    <g transform="translate(20, 56)" class="mono" font-size="11.5" line-height="20">
-      <text y="0" fill="#78716C">// Imports, complex curly braces &amp; boilerplate</text>
-      <text y="20" fill="#EF4444">import <tspan fill="#A8A29E">{ useState, useEffect }</tspan> from <tspan fill="#FCA5A5">'react'</tspan>;</text>
-      <text y="42" fill="#F87171">function <tspan fill="#A8A29E">App()</tspan> {</text>
-      <text y="64" x="16" fill="#FCA5A5">const [count, setCount] = useState(0);</text>
-      <text y="86" x="16" fill="#FCA5A5">return &lt;<tspan fill="#F87171">button</tspan> onClick={() =&gt; setCount(c =&gt; c+1)}&gt;</text>
-      <text y="108" x="32" fill="#E7E5E4">Click me {count}&lt;/<tspan fill="#F87171">button</tspan>&gt;;</text>
-      <text y="130" fill="#F87171">}</text>
+    <!-- Code Block -->
+    <g transform="translate(22, 58)" class="mono" font-size="11.5">
+      <text x="0" y="0" fill="#78716C">// Imports, complex closures &amp; nested curly braces</text>
+      <text x="0" y="22" fill="#EF4444">import <tspan fill="#E2E8F0">{ useState, useEffect }</tspan> from <tspan fill="#FCA5A5">'react'</tspan>;</text>
+      <text x="0" y="44" fill="#F87171">function <tspan fill="#E2E8F0">Counter()</tspan> <tspan fill="#EF4444">{</tspan></text>
+      <text x="16" y="66" fill="#E2E8F0">const [count, setCount] = useState(0);</text>
+      <text x="16" y="88" fill="#E2E8F0">return (</text>
+      <text x="32" y="110" fill="#FCA5A5">&lt;<tspan fill="#F87171">button</tspan> onClick={() =&gt; setCount(c =&gt; c+1)}&gt;</text>
+      <text x="48" y="132" fill="#FEE2E2">Count: {count}&lt;/<tspan fill="#F87171">button</tspan>&gt;</text>
+      <text x="16" y="154" fill="#E2E8F0">);</text>
+      <text x="0" y="174" fill="#EF4444">}</text>
+    </g>
+
+    <!-- Bottom Warning Badge -->
+    <g transform="translate(22, 238)">
+      <rect width="451" height="24" rx="6" fill="#1C1010" stroke="#7F1D1D" stroke-width="1" />
+      <text x="225" y="16" class="sans" font-size="11" font-weight="600" fill="#FCA5A5" text-anchor="middle">⚠️ Steep learning curve • Syntax noise • Confusing curly braces { }</text>
     </g>
   </g>
 
-  <!-- Right: ENT Programming (Green/Cyan Success theme) -->
-  <g transform="translate(520, 20)">
-    <rect width="460" height="220" rx="14" fill="url(#goodBg)" stroke="#10B981" stroke-width="1.8" />
+  <!-- ================= RIGHT: ENT PROGRAMMING ================= -->
+  <g transform="translate(545, 16)" filter="url(#boxShadow)">
+    <rect width="495" height="276" rx="14" fill="url(#goodBg)" stroke="url(#goodBorder)" stroke-width="1.8" />
     
-    <!-- Header -->
-    <path d="M 0 14 C 0 6.27 6.27 0 14 0 L 446 0 C 453.73 0 460 6.27 460 14 L 460 36 L 0 36 Z" fill="#1E293B" />
-    <circle cx="20" cy="18" r="5" fill="#10B981" />
-    <text x="36" y="22" class="sans" font-size="12" font-weight="700" fill="#34D399">✨ ENT Programming (Clean &amp; English-Readable)</text>
+    <!-- Title Bar -->
+    <path d="M 0 14 C 0 6.27 6.27 0 14 0 L 481 0 C 488.73 0 495 6.27 495 14 L 495 38 L 0 38 Z" fill="#0E2338" />
+    <circle cx="20" cy="19" r="5" fill="#10B981" />
+    <circle cx="36" cy="19" r="5" fill="#1E3A5F" />
+    <circle cx="52" cy="19" r="5" fill="#1E3A5F" />
+    <text x="68" y="23" class="sans" font-size="12" font-weight="700" fill="#38BDF8">ENT Programming (Clean, Natural &amp; English-Readable)</text>
 
-    <!-- Code Sample -->
-    <g transform="translate(20, 56)" class="mono" font-size="12" line-height="20">
-      <text y="0" fill="#64748B"># No curly braces. Natural English syntax.</text>
-      <text y="20" fill="#38BDF8" font-weight="700">[</text>
-      <text y="42" x="16" fill="#818CF8">page<tspan fill="#F8FAFC">(</tspan><tspan fill="#94A3B8">title = </tspan><tspan fill="#34D399">"My App"</tspan><tspan fill="#F8FAFC">)</tspan> <tspan fill="#38BDF8">[</tspan></text>
-      <text y="64" x="32" fill="#60A5FA">heading<tspan fill="#F8FAFC">(</tspan><tspan fill="#34D399">"Welcome to ENT"</tspan><tspan fill="#F8FAFC">)</tspan></text>
-      <text y="86" x="32" fill="#F472B6">button<tspan fill="#F8FAFC">(</tspan><tspan fill="#34D399">"Click me"</tspan><tspan fill="#94A3B8">, onclick = </tspan><tspan fill="#34D399">"alert('Hi!')"</tspan><tspan fill="#F8FAFC">)</tspan></text>
-      <text y="108" x="16" fill="#38BDF8">]</tspan></text>
-      <text y="130" fill="#38BDF8" font-weight="700">]</text>
+    <!-- Code Block -->
+    <g transform="translate(22, 58)" class="mono" font-size="11.5">
+      <text x="0" y="0" fill="#64748B"># Deterministic [ ... ] blocks. Zero curly braces.</text>
+      <text x="0" y="22" fill="#38BDF8" font-weight="700">[</text>
+      <text x="14" y="44" fill="#818CF8">page<tspan fill="#F8FAFC">(</tspan><tspan fill="#94A3B8">title = </tspan><tspan fill="#34D399">"My App"</tspan><tspan fill="#F8FAFC">)</tspan> <tspan fill="#38BDF8">[</tspan></text>
+      <text x="28" y="66" fill="#60A5FA">heading<tspan fill="#F8FAFC">(</tspan><tspan fill="#34D399">"Welcome to ENT"</tspan><tspan fill="#94A3B8">, level = </tspan><tspan fill="#F59E0B">1</tspan><tspan fill="#F8FAFC">)</tspan></text>
+      <text x="28" y="88" fill="#60A5FA">paragraph<tspan fill="#F8FAFC">(</tspan><tspan fill="#34D399">"Write English code, compile directly to web."</tspan><tspan fill="#F8FAFC">)</tspan></text>
+      <text x="28" y="110" fill="#F472B6">button<tspan fill="#F8FAFC">(</tspan><tspan fill="#34D399">"Click Me"</tspan><tspan fill="#94A3B8">, onclick = </tspan><tspan fill="#34D399">"alert('Hi!')"</tspan><tspan fill="#F8FAFC">)</tspan></text>
+      <text x="28" y="132" fill="#F472B6">link<tspan fill="#F8FAFC">(</tspan><tspan fill="#34D399">"Read Docs"</tspan><tspan fill="#94A3B8">, url = </tspan><tspan fill="#34D399">"https://..."</tspan><tspan fill="#F8FAFC">)</tspan></text>
+      <text x="14" y="154" fill="#38BDF8">]</text>
+      <text x="0" y="174" fill="#38BDF8" font-weight="700">]</text>
+    </g>
+
+    <!-- Bottom Success Badge -->
+    <g transform="translate(22, 238)">
+      <rect width="451" height="24" rx="6" fill="#042F2E" stroke="#10B981" stroke-width="1" />
+      <text x="225" y="16" class="sans" font-size="11" font-weight="600" fill="#34D399" text-anchor="middle">✓ 100% Readable • Built-in UI tags • Instant static HTML &amp; CSS bundle</text>
     </g>
   </g>
 </svg>

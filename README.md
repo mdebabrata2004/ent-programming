@@ -1,26 +1,26 @@
 <div align="center">
 
-  <img src="assets/ent-logo.svg" alt="ENT Programming Logo" width="110" height="110" />
+  <img src="assets/ent-logo.svg" alt="ENT Programming Logo" width="115" height="115" />
 
-  # ENT Programming
+  <h1>ENT Programming</h1>
   
-  **The Beginner-Friendly, English-Readable Programming Language for Modern Website Development.**
+  <p><strong>The Beginner-Friendly, English-Readable Programming Language for Modern Website Development.</strong></p>
 
-  [![CI Status](https://github.com/mdebabrata2004/ent-programming/actions/workflows/ci.yml/badge.svg)](https://github.com/mdebabrata2004/ent-programming/actions/workflows/ci.yml)
-  [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
-  [![Python Version](https://img.shields.io/badge/python-3.11%20%7C%203.12-brightgreen.svg)](https://www.python.org/downloads/)
-  [![Tests Passing](https://img.shields.io/badge/tests-77%20passed-success.svg)](https://github.com/mdebabrata2004/ent-programming/actions/workflows/ci.yml)
-  [![Code Style](https://img.shields.io/badge/code%20style-clean%20architecture-6366F1.svg)](https://github.com/mdebabrata2004/ent-programming)
-
-  <br />
+  <p>
+    <a href="https://github.com/mdebabrata2004/ent-programming/actions/workflows/ci.yml"><img src="https://github.com/mdebabrata2004/ent-programming/actions/workflows/ci.yml/badge.svg" alt="CI Status" /></a>
+    <a href="https://opensource.org/licenses/MIT"><img src="https://img.shields.io/badge/License-MIT-blue.svg" alt="License: MIT" /></a>
+    <a href="https://www.python.org/downloads/"><img src="https://img.shields.io/badge/python-3.11%20%7C%203.12-brightgreen.svg" alt="Python Version" /></a>
+    <a href="https://github.com/mdebabrata2004/ent-programming/actions/workflows/ci.yml"><img src="https://img.shields.io/badge/tests-77%20passed-success.svg" alt="Tests Passing" /></a>
+    <a href="https://github.com/mdebabrata2004/ent-programming"><img src="https://img.shields.io/badge/code%20style-clean%20architecture-6366F1.svg" alt="Code Style" /></a>
+  </p>
 
   <p align="center">
-    <a href="#-quick-start-in-60-seconds"><b>⚡ Quick Start</b></a> •
-    <a href="#-why-ent-syntax-at-a-glance"><b>🔍 Syntax Spotlight</b></a> •
-    <a href="#-how-it-works"><b>⚙️ How It Works</b></a> •
-    <a href="#-ent-studio-web-ide"><b>💻 Web IDE</b></a> •
-    <a href="#-cli-cheat-sheet"><b>🛠️ CLI Usage</b></a> •
-    <a href="#-documentation-index"><b>📚 Docs</b></a>
+    <a href="#quick-start"><b>⚡ Quick Start</b></a> •
+    <a href="#syntax-spotlight"><b>🔍 Syntax Spotlight</b></a> •
+    <a href="#how-it-works"><b>⚙️ How It Works</b></a> •
+    <a href="#web-ide"><b>💻 Web IDE</b></a> •
+    <a href="#cli-usage"><b>🛠️ CLI Usage</b></a> •
+    <a href="#documentation"><b>📚 Docs</b></a>
   </p>
 
 </div>
@@ -43,6 +43,7 @@
 
 ---
 
+<a id="syntax-spotlight"></a>
 ## 🔍 Why ENT? (Syntax at a Glance)
 
 Traditional programming languages overwhelm beginners with complicated symbols, confusing imports, and nested curly braces. ENT strips away boilerplate while keeping deterministic grammar:
@@ -71,6 +72,7 @@ Traditional programming languages overwhelm beginners with complicated symbols, 
 
 ---
 
+<a id="how-it-works"></a>
 ## ⚙️ How It Works
 
 ENT is not a mockup or regex translator. It runs a complete 4-stage compilation and execution engine:
@@ -88,6 +90,7 @@ ENT is not a mockup or regex translator. It runs a complete 4-stage compilation 
 
 ---
 
+<a id="web-ide"></a>
 ## 💻 ENT Studio Web IDE
 
 ENT includes an official browser-based development environment powered by **Monaco Editor**, live syntax checking, and instant sandboxed web previews:
@@ -104,6 +107,7 @@ ENT includes an official browser-based development environment powered by **Mona
 
 ---
 
+<a id="quick-start"></a>
 ## 🚀 Quick Start in 60 Seconds
 
 ### 1. Installation
@@ -140,6 +144,7 @@ ent dev examples/website.ent
 
 ---
 
+<a id="cli-usage"></a>
 ## 🛠️ CLI Cheat Sheet
 
 The `ent` CLI provides a unified workflow for developers:
@@ -179,6 +184,7 @@ python -m pytest -v
 
 ---
 
+<a id="documentation"></a>
 ## 📚 Documentation Index
 
 Ready to explore deeper? Everything is documented in [`docs/`](docs/):

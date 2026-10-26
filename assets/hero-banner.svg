@@ -2,178 +2,188 @@
   <defs>
     <!-- Background Gradients -->
     <linearGradient id="heroBg" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#090D16" />
-      <stop offset="40%" stop-color="#0F172A" />
-      <stop offset="100%" stop-color="#050811" />
+      <stop offset="0%" stop-color="#080C14" />
+      <stop offset="50%" stop-color="#0F172A" />
+      <stop offset="100%" stop-color="#040711" />
     </linearGradient>
 
-    <!-- Radial Glows -->
-    <radialGradient id="glowCyan" cx="20%" cy="30%" r="50%">
-      <stop offset="0%" stop-color="#38BDF8" stop-opacity="0.18" />
-      <stop offset="100%" stop-color="#38BDF8" stop-opacity="0" />
+    <!-- Radial Glows for Ambiance -->
+    <radialGradient id="glowCyan" cx="15%" cy="25%" r="55%">
+      <stop offset="0%" stop-color="#0284C7" stop-opacity="0.25" />
+      <stop offset="100%" stop-color="#0284C7" stop-opacity="0" />
     </radialGradient>
-    <radialGradient id="glowIndigo" cx="80%" cy="40%" r="60%">
-      <stop offset="0%" stop-color="#6366F1" stop-opacity="0.22" />
+    <radialGradient id="glowIndigo" cx="85%" cy="35%" r="65%">
+      <stop offset="0%" stop-color="#6366F1" stop-opacity="0.25" />
       <stop offset="100%" stop-color="#6366F1" stop-opacity="0" />
     </radialGradient>
-    <radialGradient id="glowEmerald" cx="50%" cy="85%" r="40%">
-      <stop offset="0%" stop-color="#10B981" stop-opacity="0.14" />
+    <radialGradient id="glowEmerald" cx="50%" cy="90%" r="45%">
+      <stop offset="0%" stop-color="#10B981" stop-opacity="0.18" />
       <stop offset="100%" stop-color="#10B981" stop-opacity="0" />
     </radialGradient>
 
-    <!-- UI Gradients -->
-    <linearGradient id="textGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+    <!-- Text Gradients -->
+    <linearGradient id="titleGrad" x1="0%" y1="0%" x2="100%" y2="0%">
       <stop offset="0%" stop-color="#38BDF8" />
       <stop offset="50%" stop-color="#818CF8" />
       <stop offset="100%" stop-color="#C084FC" />
     </linearGradient>
-
-    <linearGradient id="editorCardBg" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#1E293B" stop-opacity="0.9" />
-      <stop offset="100%" stop-color="#0F172A" stop-opacity="0.95" />
+    <linearGradient id="badgeGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#38BDF8" />
+      <stop offset="100%" stop-color="#6366F1" />
     </linearGradient>
 
+    <!-- Card Backgrounds -->
+    <linearGradient id="editorCardBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1A2234" stop-opacity="0.95" />
+      <stop offset="100%" stop-color="#0F172A" stop-opacity="0.98" />
+    </linearGradient>
     <linearGradient id="previewCardBg" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" stop-color="#1E293B" />
-      <stop offset="100%" stop-color="#111827" />
+      <stop offset="100%" stop-color="#0B0F19" />
     </linearGradient>
 
-    <!-- Drop Shadows -->
-    <filter id="cardShadow" x="-10%" y="-10%" width="120%" height="125%">
-      <feDropShadow dx="0" dy="16" stdDeviation="20" flood-color="#000000" flood-opacity="0.6" />
+    <!-- Glass Borders -->
+    <linearGradient id="borderGlow" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#38BDF8" stop-opacity="0.6" />
+      <stop offset="50%" stop-color="#6366F1" stop-opacity="0.3" />
+      <stop offset="100%" stop-color="#10B981" stop-opacity="0.5" />
+    </linearGradient>
+
+    <!-- Shadow -->
+    <filter id="heroShadow" x="-10%" y="-10%" width="125%" height="125%">
+      <feDropShadow dx="0" dy="18" stdDeviation="22" flood-color="#000000" flood-opacity="0.75" />
     </filter>
   </defs>
 
   <style>
     .font-sans { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; }
-    .font-mono { font-family: 'Fira Code', 'Cascadia Code', Consolas, 'Courier New', monospace; }
+    .font-mono { font-family: 'Cascadia Code', 'Fira Code', 'JetBrains Mono', Consolas, monospace; }
   </style>
 
-  <!-- Background Base -->
+  <!-- Base Canvas -->
   <rect width="1200" height="520" fill="url(#heroBg)" />
   <rect width="1200" height="520" fill="url(#glowCyan)" />
   <rect width="1200" height="520" fill="url(#glowIndigo)" />
   <rect width="1200" height="520" fill="url(#glowEmerald)" />
 
-  <!-- Subtle Blueprint Tech Grid -->
+  <!-- Subtle Futuristic Grid Pattern -->
   <g opacity="0.04" stroke="#94A3B8" stroke-width="1">
     <path d="M 0 65 L 1200 65 M 0 130 L 1200 130 M 0 195 L 1200 195 M 0 260 L 1200 260 M 0 325 L 1200 325 M 0 390 L 1200 390 M 0 455 L 1200 455" />
     <path d="M 100 0 L 100 520 M 200 0 L 200 520 M 300 0 L 300 520 M 400 0 L 400 520 M 500 0 L 500 520 M 600 0 L 600 520 M 700 0 L 700 520 M 800 0 L 800 520 M 900 0 L 900 520 M 1000 0 L 1000 520 M 1100 0 L 1100 520" />
   </g>
 
-  <!-- ==================== LEFT COLUMN: HERO HEADLINE & BADGES ==================== -->
+  <!-- ==================== LEFT COLUMN: HERO CONTENT ==================== -->
   
-  <!-- Status Chip -->
+  <!-- Version & Category Pill -->
   <g transform="translate(60, 48)">
-    <rect width="260" height="30" rx="15" fill="#1E293B" stroke="#334155" stroke-width="1.2" />
-    <circle cx="16" cy="15" r="4.5" fill="#10B981" />
-    <text x="30" y="19" class="font-sans" font-size="12" font-weight="700" fill="#E2E8F0" letter-spacing="0.5">OPEN SOURCE • v0.1.0 STABLE</text>
+    <rect width="280" height="32" rx="16" fill="#0F172A" stroke="url(#borderGlow)" stroke-width="1.2" />
+    <circle cx="18" cy="16" r="4.5" fill="#10B981" />
+    <text x="32" y="20.5" class="font-sans" font-size="12" font-weight="700" fill="#E2E8F0" letter-spacing="0.5">OPEN SOURCE • v0.1.0 READY</text>
   </g>
 
-  <!-- Big Hero Title -->
-  <text x="60" y="140" class="font-sans" font-size="52" font-weight="900" fill="#F8FAFC" letter-spacing="-1">Build Websites With</text>
-  <text x="60" y="198" class="font-sans" font-size="52" font-weight="900" fill="url(#textGrad)" letter-spacing="-1">Simple English.</text>
+  <!-- Main Hero Titles -->
+  <text x="60" y="136" class="font-sans" font-size="52" font-weight="900" fill="#F8FAFC" letter-spacing="-1">Build Websites With</text>
+  <text x="60" y="196" class="font-sans" font-size="52" font-weight="900" fill="url(#titleGrad)" letter-spacing="-1">Simple English.</text>
 
   <!-- Punchy Subtitle -->
-  <text x="60" y="246" class="font-sans" font-size="17" font-weight="400" fill="#94A3B8" line-height="26">
+  <text x="60" y="244" class="font-sans" font-size="16" font-weight="400" fill="#94A3B8">
     <tspan x="60" dy="0">A beginner-friendly, bracket-delimited programming language</tspan>
-    <tspan x="60" dy="24">with a deterministic Pratt parser, instant static site generator,</tspan>
-    <tspan x="60" dy="24">and the ENT Studio web IDE. Zero complex syntax.</tspan>
+    <tspan x="60" dy="24">with a deterministic Pratt parser, static site compiler,</tspan>
+    <tspan x="60" dy="24">and the ENT Studio web IDE. Zero curly braces.</tspan>
   </text>
 
-  <!-- Feature Check Badges -->
-  <g transform="translate(60, 342)">
+  <!-- Feature Check Pills (2x2 Grid) -->
+  <g transform="translate(60, 338)">
     <!-- Pill 1 -->
-    <rect x="0" y="0" width="190" height="32" rx="16" fill="#0F172A" stroke="#38BDF8" stroke-width="1.2" />
-    <text x="14" y="20.5" class="font-sans" font-size="12.5" font-weight="600" fill="#38BDF8">[ ] No Curly Braces</text>
+    <rect x="0" y="0" width="195" height="34" rx="17" fill="#0F172A" stroke="#38BDF8" stroke-width="1.2" stroke-opacity="0.8" />
+    <text x="16" y="21.5" class="font-sans" font-size="12" font-weight="600" fill="#38BDF8">[ ] No Curly Braces</text>
 
     <!-- Pill 2 -->
-    <rect x="202" y="0" width="190" height="32" rx="16" fill="#0F172A" stroke="#818CF8" stroke-width="1.2" />
-    <text x="216" y="20.5" class="font-sans" font-size="12.5" font-weight="600" fill="#A5B4FC">🌐 Built-in Web Tags</text>
+    <rect x="207" y="0" width="195" height="34" rx="17" fill="#0F172A" stroke="#818CF8" stroke-width="1.2" stroke-opacity="0.8" />
+    <text x="223" y="21.5" class="font-sans" font-size="12" font-weight="600" fill="#A5B4FC">🌐 Built-in Web UI</text>
   </g>
 
-  <g transform="translate(60, 386)">
+  <g transform="translate(60, 384)">
     <!-- Pill 3 -->
-    <rect x="0" y="0" width="190" height="32" rx="16" fill="#0F172A" stroke="#10B981" stroke-width="1.2" />
-    <text x="14" y="20.5" class="font-sans" font-size="12.5" font-weight="600" fill="#34D399">🛡️ Sandboxed (No Eval)</text>
+    <rect x="0" y="0" width="195" height="34" rx="17" fill="#0F172A" stroke="#10B981" stroke-width="1.2" stroke-opacity="0.8" />
+    <text x="16" y="21.5" class="font-sans" font-size="12" font-weight="600" fill="#34D399">🛡️ Sandboxed (No Eval)</text>
 
     <!-- Pill 4 -->
-    <rect x="202" y="0" width="190" height="32" rx="16" fill="#0F172A" stroke="#F59E0B" stroke-width="1.2" />
-    <text x="216" y="20.5" class="font-sans" font-size="12.5" font-weight="600" fill="#FCD34D">⚡ 77/77 Passing Tests</text>
+    <rect x="207" y="0" width="195" height="34" rx="17" fill="#0F172A" stroke="#F59E0B" stroke-width="1.2" stroke-opacity="0.8" />
+    <text x="223" y="21.5" class="font-sans" font-size="12" font-weight="600" fill="#FCD34D">⚡ 77/77 Tests Passing</text>
   </g>
 
   <!-- Quick Command Box -->
   <g transform="translate(60, 442)">
-    <rect width="392" height="42" rx="10" fill="#020617" stroke="#334155" stroke-width="1.2" />
-    <text x="16" y="26" class="font-mono" font-size="13" font-weight="600" fill="#38BDF8">$</text>
-    <text x="32" y="26" class="font-mono" font-size="13" font-weight="500" fill="#F8FAFC">pip install -e . &amp;&amp; ent website.ent</text>
+    <rect width="402" height="42" rx="10" fill="#020617" stroke="#334155" stroke-width="1.2" />
+    <text x="16" y="26" class="font-mono" font-size="13" font-weight="700" fill="#38BDF8">$</text>
+    <text x="32" y="26" class="font-mono" font-size="12.5" font-weight="500" fill="#F8FAFC">pip install -e . &amp;&amp; ent website.ent</text>
   </g>
 
 
-  <!-- ==================== RIGHT COLUMN: VISUAL CODE-TO-PREVIEW ==================== -->
-
-  <!-- Outer Glassmorphic Container -->
-  <g transform="translate(560, 45)" filter="url(#cardShadow)">
+  <!-- ==================== RIGHT COLUMN: CODE TO PREVIEW ==================== -->
+  <g transform="translate(540, 42)" filter="url(#heroShadow)">
     
-    <!-- 1. Left Editor Window: ENT Code -->
-    <g>
-      <rect width="280" height="415" rx="16" fill="url(#editorCardBg)" stroke="#334155" stroke-width="1.5" />
+    <!-- 1. LEFT SUB-WINDOW: ENT CODE EDITOR -->
+    <g transform="translate(0, 0)">
+      <rect width="285" height="425" rx="16" fill="url(#editorCardBg)" stroke="#334155" stroke-width="1.4" />
       
-      <!-- Editor Header -->
-      <path d="M 0 16 C 0 7.16 7.16 0 16 0 L 264 0 C 272.84 0 280 7.16 280 16 L 280 38 L 0 38 Z" fill="#0F172A" />
+      <!-- Window Titlebar -->
+      <path d="M 0 16 C 0 7.16 7.16 0 16 0 L 269 0 C 277.84 0 285 7.16 285 16 L 285 38 L 0 38 Z" fill="#0F172A" />
       <circle cx="18" cy="19" r="5" fill="#EF4444" />
       <circle cx="34" cy="19" r="5" fill="#F59E0B" />
       <circle cx="50" cy="19" r="5" fill="#10B981" />
-      <text x="140" y="23" class="font-mono" font-size="11" font-weight="600" fill="#94A3B8" text-anchor="middle">website.ent</text>
+      <text x="150" y="23" class="font-mono" font-size="11" font-weight="600" fill="#94A3B8" text-anchor="middle">website.ent</text>
 
       <!-- Code Snippet -->
-      <g transform="translate(18, 62)" class="font-mono" font-size="11.5" line-height="20">
-        <text y="0" fill="#38BDF8" font-weight="700">[</text>
-        <text y="22" x="12" fill="#818CF8">page<tspan fill="#F8FAFC">(</tspan><tspan fill="#94A3B8">title = </tspan><tspan fill="#34D399">"My Site"</tspan><tspan fill="#F8FAFC">)</tspan> <tspan fill="#38BDF8">[</tspan></text>
+      <g transform="translate(18, 62)" class="font-mono" font-size="11.5">
+        <text x="0" y="0" fill="#38BDF8" font-weight="700">[</text>
+        <text x="12" y="22" fill="#818CF8">page<tspan fill="#F8FAFC">(</tspan><tspan fill="#94A3B8">title = </tspan><tspan fill="#34D399">"My Site"</tspan><tspan fill="#F8FAFC">)</tspan> <tspan fill="#38BDF8">[</tspan></text>
         
-        <text y="50" x="24" fill="#60A5FA">heading<tspan fill="#F8FAFC">(</tspan><tspan fill="#34D399">"Welcome!"</tspan><tspan fill="#F8FAFC">)</tspan></text>
+        <text x="24" y="50" fill="#60A5FA">heading<tspan fill="#F8FAFC">(</tspan><tspan fill="#34D399">"Welcome!"</tspan><tspan fill="#F8FAFC">)</tspan></text>
         
-        <text y="78" x="24" fill="#60A5FA">paragraph<tspan fill="#F8FAFC">(</tspan></text>
-        <text y="98" x="36" fill="#34D399">"Built with ENT."</text>
-        <text y="118" x="24" fill="#F8FAFC">)</tspan></text>
+        <text x="24" y="78" fill="#60A5FA">paragraph<tspan fill="#F8FAFC">(</tspan></text>
+        <text x="36" y="98" fill="#34D399">"Built with ENT."</text>
+        <text x="24" y="118" fill="#F8FAFC">)</text>
 
-        <text y="146" x="24" fill="#60A5FA">section<tspan fill="#F8FAFC">()</tspan> <tspan fill="#38BDF8">[</tspan></text>
-        <text y="172" x="36" fill="#F472B6">button<tspan fill="#F8FAFC">(</tspan><tspan fill="#34D399">"Explore"</tspan><tspan fill="#F8FAFC">)</tspan></text>
-        <text y="198" x="36" fill="#F472B6">link<tspan fill="#F8FAFC">(</tspan><tspan fill="#34D399">"Docs"</tspan><tspan fill="#94A3B8">, url = </tspan><tspan fill="#34D399">"..."</tspan><tspan fill="#F8FAFC">)</tspan></text>
-        <text y="224" x="24" fill="#38BDF8">]</tspan></text>
+        <text x="24" y="146" fill="#60A5FA">section<tspan fill="#F8FAFC">()</tspan> <tspan fill="#38BDF8">[</tspan></text>
+        <text x="36" y="172" fill="#F472B6">button<tspan fill="#F8FAFC">(</tspan><tspan fill="#34D399">"Explore"</tspan><tspan fill="#F8FAFC">)</tspan></text>
+        <text x="36" y="198" fill="#F472B6">link<tspan fill="#F8FAFC">(</tspan><tspan fill="#34D399">"Docs"</tspan><tspan fill="#94A3B8">, url = </tspan><tspan fill="#34D399">"..."</tspan><tspan fill="#F8FAFC">)</tspan></text>
+        <text x="24" y="224" fill="#38BDF8">]</text>
         
-        <text y="252" x="12" fill="#38BDF8">]</tspan></text>
-        <text y="278" x="0" fill="#38BDF8" font-weight="700">]</text>
+        <text x="12" y="252" fill="#38BDF8">]</text>
+        <text x="0" y="278" fill="#38BDF8" font-weight="700">]</text>
       </g>
 
-      <!-- Step Counter Badge -->
-      <g transform="translate(18, 362)">
-        <rect width="130" height="24" rx="6" fill="#020617" stroke="#334155" stroke-width="1" />
-        <text x="10" y="16" class="font-mono" font-size="10" fill="#38BDF8">⚡ 100% Deterministic</text>
+      <!-- Bottom Status -->
+      <g transform="translate(18, 375)">
+        <rect width="145" height="26" rx="6" fill="#090D16" stroke="#334155" stroke-width="1" />
+        <circle cx="12" cy="13" r="3.5" fill="#38BDF8" />
+        <text x="22" y="17" class="font-mono" font-size="10" font-weight="600" fill="#38BDF8">100% Deterministic</text>
       </g>
     </g>
 
-    <!-- Transition Arrow Pill -->
-    <g transform="translate(260, 192)">
-      <circle cx="20" cy="20" r="22" fill="#020617" stroke="#38BDF8" stroke-width="2" />
-      <path d="M 12 20 L 26 20 M 20 14 L 26 20 L 20 26" stroke="#38BDF8" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
+    <!-- Transition Arrow Circle -->
+    <g transform="translate(268, 195)">
+      <circle cx="20" cy="20" r="22" fill="#090D16" stroke="#38BDF8" stroke-width="2" />
+      <path d="M 12 20 L 28 20 M 21 13 L 28 20 L 21 27" stroke="#38BDF8" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
     </g>
 
-    <!-- 2. Right Browser Window: Live Website Output -->
-    <g transform="translate(300, 0)">
-      <rect width="280" height="415" rx="16" fill="url(#previewCardBg)" stroke="#38BDF8" stroke-width="1.8" />
+    <!-- 2. RIGHT SUB-WINDOW: LIVE WEBPAGE PREVIEW -->
+    <g transform="translate(305, 0)">
+      <rect width="295" height="425" rx="16" fill="url(#previewCardBg)" stroke="#38BDF8" stroke-width="1.6" />
       
       <!-- Browser Top Bar -->
-      <path d="M 0 16 C 0 7.16 7.16 0 16 0 L 264 0 C 272.84 0 280 7.16 280 16 L 280 38 L 0 38 Z" fill="#0B0F19" />
+      <path d="M 0 16 C 0 7.16 7.16 0 16 0 L 279 0 C 287.84 0 295 7.16 295 16 L 295 38 L 0 38 Z" fill="#0F172A" />
       <circle cx="16" cy="19" r="4" fill="#475569" />
       <circle cx="28" cy="19" r="4" fill="#475569" />
       <circle cx="40" cy="19" r="4" fill="#475569" />
       
-      <!-- Address bar -->
-      <rect x="56" y="9" width="180" height="20" rx="10" fill="#1E293B" />
-      <text x="146" y="23" class="font-mono" font-size="9.5" fill="#38BDF8" text-anchor="middle">localhost:8000/preview</text>
+      <!-- Browser Address Bar -->
+      <rect x="56" y="9" width="195" height="20" rx="10" fill="#1E293B" />
+      <text x="153" y="23" class="font-mono" font-size="9.5" fill="#38BDF8" text-anchor="middle">localhost:8000/preview</text>
 
-      <!-- Live Web Page Mock Content -->
+      <!-- Web Content -->
       <g transform="translate(20, 56)">
         <!-- Heading -->
         <text x="0" y="24" class="font-sans" font-size="20" font-weight="800" fill="#F8FAFC">Welcome!</text>
@@ -181,29 +191,29 @@
         <!-- Paragraph -->
         <text x="0" y="48" class="font-sans" font-size="12" font-weight="400" fill="#94A3B8">Built with ENT.</text>
 
-        <!-- Card Section -->
+        <!-- Interactive Card Section -->
         <g transform="translate(0, 70)">
-          <rect width="240" height="150" rx="10" fill="#0F172A" stroke="#334155" stroke-width="1" />
+          <rect width="255" height="165" rx="10" fill="#0F172A" stroke="#334155" stroke-width="1" />
           
           <text x="16" y="32" class="font-sans" font-size="13" font-weight="700" fill="#E2E8F0">Interactive Section</text>
           <text x="16" y="52" class="font-sans" font-size="11" font-weight="400" fill="#64748B">Instant HTML5 &amp; CSS3 bundle.</text>
 
           <!-- Button -->
-          <rect x="16" y="74" width="96" height="32" rx="8" fill="#2563EB" />
-          <text x="64" y="94" class="font-sans" font-size="12" font-weight="700" fill="#FFFFFF" text-anchor="middle">Explore</text>
+          <rect x="16" y="74" width="105" height="34" rx="8" fill="#2563EB" />
+          <text x="68" y="96" class="font-sans" font-size="12" font-weight="700" fill="#FFFFFF" text-anchor="middle">Explore</text>
 
           <!-- Link -->
-          <text x="124" y="95" class="font-sans" font-size="12" font-weight="600" fill="#38BDF8">Docs ↗</text>
+          <text x="136" y="96" class="font-sans" font-size="12" font-weight="600" fill="#38BDF8">Docs ↗</text>
 
           <!-- Safe Sanitized Badge -->
-          <g transform="translate(16, 118)">
-            <rect width="208" height="18" rx="4" fill="#020617" />
-            <text x="104" y="12.5" class="font-mono" font-size="9" fill="#10B981" text-anchor="middle">✓ XSS-Safe HTML5 Sanitized</text>
+          <g transform="translate(16, 126)">
+            <rect width="223" height="22" rx="4" fill="#020617" />
+            <text x="111" y="15" class="font-mono" font-size="9.5" fill="#10B981" text-anchor="middle">✓ XSS-Safe HTML5 Sanitized</text>
           </g>
         </g>
 
         <!-- Footer snippet -->
-        <text x="120" y="260" class="font-sans" font-size="10" fill="#475569" text-anchor="middle">Generated with ENT Programming</text>
+        <text x="127" y="280" class="font-sans" font-size="10.5" fill="#475569" text-anchor="middle">Generated with ENT Programming</text>
       </g>
     </g>
 
